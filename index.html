@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 
-
-
 <html>
     <head>
     <title> JS Pesquisa</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="db.js"></script>
-    <script src="db.json"></script>
     </head>
     <style>
         .background{
             font-size: 14px;
             font-family: 'Segoe UI';
             background-color: blue;
+            display: block;
 
         }
         .FotoJs{
@@ -27,8 +24,7 @@
             color: white;
             margin-bottom:0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-left: 1900px;
         
         }
         .Texto{
@@ -36,25 +32,22 @@
             color: white;
             margin-bottom:0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-left: 1900px;
         }
         .TextoDesc{
             font-size: 120px;
             color: white;
             margin-bottom:0;
             display: flex;
-            margin-left: 2050px;
+            margin-left: 1900px;
             margin-top: 80px;
         }
       .Combobox{
         height: 16.800px;
-        width: 1193.750px;
+    
         display: flex;
-        justify-content: center;
-        align-items: center;
+        margin-left: 1900px;
         margin-bottom:0;
-        margin-left: 2040px;
         width: 3006.4px;
         height: 198px;
         font-size: 50px;
@@ -66,7 +59,7 @@
             color: black;
             margin-bottom:0;
             display: flex;
-            margin-left: 2050px;
+            margin-left: 1900px;
             margin-top: 80px;
             width: 3006.4px;
             height: 470px;
@@ -75,41 +68,18 @@
     </style>
 <body class="background">
     <h1 class="Titulo"> Dicionário para aula do Montanha</h1>
-    <img src="png-javascript-badge-picture-8.png" class="FotoJs"/>
-    <p class="Texto">Escolha um verbete no combo abaixo:</p>
-    <select title="Tópicos" class="Combobox"  id="slc-topicos" onchange="onSelectChange()">
+    <img src="https://png2.cleanpng.com/sh/20fd543b23585711f79f836768944280/L0KzQYm4UcI2N5tuhJH0aYP2gLBuTgJmaZR5RdxqdnH2c8PwkQQuepZpjeo2doXoPbv6TfFvb6ZxeeQ2anH5ccTqkvlxfF5vieducomwRbPtgccybmNpSdhsOEexRYSBUcUxOGM2TaY8MUO8SIO9WMYxOV91htk=/kisspng-react-javascript-redux-vue-js-angular-javascript-jquery-5bfa71f2d1fc87.5381500215431398268601.png" class="FotoJs"/>
+    <p class="Texto" for="slc-topicos">Escolha um verbete no combo abaixo:</p>
+    <select title="Tópicos" class="Combobox"  id="slc-topicos">
         <option value="1">O que é JavaScript</option>
         <option value="2">Statement 'for'</option>
         <option value="3">Funções em JavaScript</option>
         <option value="4">Objetos em JavaScript</option>
     </select>
-    <p class="TextoDesc">Escreva algo na área de texto abaixo:</p>
-    <p class="TextoDesc" id="lbl-txt-desc">Descrição: </p>
-    <textarea id="txt-desc" name="description" title="Descição" placeholder="">
-        
-    </textarea>
-<script>
-    function initSelect() {
-        var select = $('#slc-topicos');
-        $.each(db.data, function(index, item) {
-            select.append($('<option>', {
-                value: item.id,
-                text: item.titulo
-            }));
-        });
-    }
-    $('#slc-topicos').change(function() {
-        var id = $(this).val();
-        var item = db.data.find(function(item) {
-            return item.id == id;
-        });
-        $('#lbl-txt-desc').text(item.titulo);
-        $('#txt-desc').text(item.descricao);
-    });
-  
-        db.init(initSelect);
-</script>
+    <p class="TextoDesc" for="displayText">Descrição: </p>
+    <textarea id="displayText" name="displayText" title="displayText" placeholder=""></textarea>
 
+    <script src="db.js"></script>
 
    
 </body>
